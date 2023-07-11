@@ -215,7 +215,7 @@ class branchioStream(RESTStream):
             or self.config.get("start_date")
         )
         page_date = pendulum.parse(start_date)
-        week_ago = utc_now - datetime.timedelta(days=7)
+        week_ago = utc_now() - datetime.timedelta(days=7)
         if page_date < week_ago:
             page_date = week_ago
 
