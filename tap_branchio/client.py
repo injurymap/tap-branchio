@@ -213,9 +213,11 @@ class branchioStream(RESTStream):
         start_date = (
             self.get_starting_replication_key_value(context)
             or self.config.get("start_date")
-            or (utc_now - datetime.timedelta(days=7)).strftime("%Y-%m-%d")
         )
         page_date = pendulum.parse(start_date)
+        week_ago = utc_now - datetime.timedelta(days=7)
+        if page_date < week_ago:
+            page_date = week_ago
 
         decorated_request = self.request_decorator(self._request)
 
