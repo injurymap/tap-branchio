@@ -44,12 +44,9 @@ class Tapbranchio(Tap):
         return [
             streams.EoBranchCtaView(self),
             streams.EoClick(self),
-            streams.EoCommerceEvent(self),
-            streams.EoContentEvent(self),
+            streams.EoCustomEvent(self),
             streams.EoInstall(self),
             streams.EoOpen(self),
-            streams.EoReinstall(self),
-            streams.EoUserLifecycleEvent(self),
         ]
 
 
